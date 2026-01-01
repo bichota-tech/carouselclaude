@@ -1,24 +1,24 @@
 
 const cards = [
     {
-        title: "E-Commerce App",
-        videoUrl: "https://example.com/videos/demo1.mp4",
-        url: "https://example.com/demo1"
+        title: "HEVCA | Fotografía Profesional",
+        videoUrl: "video/hevca_prueba.webm",
+        url: "https://bichota-tech.github.io/Galeria_Virtual/"
     },
     {
-        title: "Fitness Tracker",
-        videoUrl: "https://example.com/videos/demo2.mp4",
-        url: "https://example.com/demo2"
+        title: "Excurciones Cartas",
+        videoUrl: "video/excursionescartas.webm",
+        url: "https://bichota-tech.github.io/excursionescartas/"
     },
     {
-        title: "Social Network",
-        videoUrl: "https://example.com/videos/demo3.mp4",
-        url: "https://example.com/demo3"
+        title: "Maquetación Wordpress Limpiezas Violeta y Verde",
+        videoUrl: "video/iPhone-13-PRO-www.limpiezasvioletayverde.com.webm",
+        url: "https://www.limpiezasvioletayverde.com/"
     },
     {
-        title: "Food Delivery",
-        videoUrl: "https://example.com/videos/demo4.mp4",
-        url: "https://example.com/demo4"
+        title: "Maquetación Wordpress Hidráulica WeldingBoss",
+        videoUrl: "video/iPhone-13-PRO-hidraulica.cotos.es.webm",
+        url: "https://hidraulica.cotos.es/"
     }
 ];
 
@@ -41,6 +41,7 @@ function createCards() {
                         <div class="mobile-screen">
                             <div class="video-container">
                                 <video autoplay loop muted playsinline>
+                                    <source src="${card.videoUrl}" type="video/webm">
                                     <source src="${card.videoUrl}" type="video/mp4">
                                 </video>
                             </div>
@@ -117,7 +118,7 @@ function nextSlide() {
 
     setTimeout(() => {
         isAnimating = false;
-    }, 1200);
+    }, 5000);
 }
 
 // Navegación hacia atrás
@@ -149,7 +150,7 @@ function goToSlide(index) {
 
     setTimeout(() => {
         isAnimating = false;
-    }, 1200);
+    }, 3000);
 }
 
 // Event listeners
