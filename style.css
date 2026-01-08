@@ -1,0 +1,274 @@
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    height: 100vh;
+    max-height: 100vh;
+    perspective: 2000px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* .carousel-title {
+    text-align: center;
+    color: white;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: clamp(20px, 4vh, 40px);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    flex-shrink: 0;
+} */
+
+.carousel-stage {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    max-height: calc(100vh - 150px);
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-orbit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: clamp(260px, 18vw, 350px);
+    height: clamp(490px, 45vh, 650px);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transition: opacity 0.6s ease, filter 0.6s ease;
+}
+
+.mobile-frame {
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+    border-radius: clamp(30px, 4vw, 40px); */
+    /* padding: clamp(8px, 1vw, 12px); */
+    /* box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.1); */
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(100px, 12vw, 140px);
+    height: clamp(20px, 2.5vh, 28px);
+    /* background: #1a1a1a;
+    border-radius: 0 0 20px 20px; */
+    z-index: 10;
+}
+
+.mobile-screen {
+    width: 100%;
+    height: 100%;
+    /* background: #000;
+    border-radius: clamp(24px, 3vw, 32px); */
+    overflow: hidden;
+    position: relative;
+}
+
+.video-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+    overflow: hidden;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: clamp(15px, 3vw, 32px);
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(32px, 5vw, 48px);
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.card-label {
+    position: absolute;
+    bottom: clamp(-60px, -5vh, -70px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: clamp(8px, 1.5vh, 12px) clamp(16px, 3vw, 24px);
+    border-radius: clamp(12px, 2vw, 20px);
+    font-weight: 600;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    color: #667eea;
+    white-space: nowrap;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+}
+
+/* Posicionamiento orbital */
+.mobile-card:nth-child(1) {
+    transform: translate(-50%, -50%) rotateY(0deg) ;
+}
+
+.mobile-card:nth-child(2) {
+    transform: translate(-50%, -50%) rotateY(90deg) ;
+}
+
+.mobile-card:nth-child(3) {
+    transform: translate(-50%, -50%) rotateY(180deg) ;
+}
+
+.mobile-card:nth-child(4) {
+    transform: translate(-50%, -50%) rotateY(270deg) ;
+}
+
+/* Control de visibilidad según rotación */
+.mobile-card.front {
+    opacity: 1;
+    filter: blur(0);
+    z-index: 4;
+}
+
+.mobile-card.front .card-label {
+    opacity: 1;
+}
+
+.mobile-card.side {
+    opacity: 0.6;
+    filter: blur(1px);
+    z-index: 3;
+}
+
+.mobile-card.back {
+    opacity: 0;
+    filter: blur(3px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Botones de navegación */
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(45px, 6vw, 60px);
+    height: clamp(45px, 6vw, 60px);
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    font-size: clamp(20px, 3vw, 24px);
+    color: #667eea;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-button:hover {
+    background: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.nav-button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.nav-button.prev-btn {
+    left: clamp(10px, 3vw, 40px);
+}
+
+.nav-button.next-btn {
+    right: clamp(10px, 3vw, 40px);
+}
+
+/* Indicadores */
+.indicators {
+    position: absolute;
+    bottom: clamp(10px, 2vh, 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: clamp(8px, 1.5vw, 12px);
+    z-index: 10;
+}
+
+.indicator {
+    width: clamp(10px, 1.5vw, 12px);
+    height: clamp(10px, 1.5vw, 12px);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.indicator.active {
+    background: white;
+    width: clamp(24px, 3.5vw, 32px);
+    border-radius: 6px;
+}
+
+/* /* Gradiente único para todas las tarjetas 
+.video-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+} */
+
+@media (max-height: 600px) {
+    .carousel-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .mobile-card {
+        height: clamp(180px, 40vh, 350px);
+    }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+    .carousel-title {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+}
