@@ -1,28 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Carrusel 3D Mobile Mockups</title>
-    
+    <title>Portfolio Carousel 3D</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
+
 <body>
-    <div class="carousel-container">
-        <!-- <h1 class="carousel-title">Nuestras Apps Demo</h1> -->
-        
-        <div class="carousel-stage" id="carouselStage">
-            <div class="carousel-orbit" id="carouselOrbit">
-                <!-- Las tarjetas se generarán con JavaScript -->
+    <div class="bodycardfame">
+        <div class="carousel-wrapperfame">
+            <div class="carouselfame" id="carousel">
+
+                <div class="cardfame activefame">
+                    <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+                        <video autoplay loop muted playsinline>
+                            <source src="video/253997_tiny.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </a>
+                </div>
+
+                <div class="cardfame leftfame">
+                    <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+                        <video autoplay loop muted playsinline>
+                            <source src="video/253997_tiny.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </a>
+                </div>
+
+                <div class="cardfame rightfame">
+                    <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+                        <video autoplay loop muted playsinline>
+                            <source src="video/253997_tiny.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </a>
+                </div>
+
+                <div class="cardfame hiddenfame">
+                    <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+                        <video autoplay loop muted playsinline>
+                            <source src="video/253997_tiny.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </a>
+                </div>
+
+
+                <div class="cardfame hiddenfame">
+                    <a href="https://www.google.com" target="_blank" rel="noopener noreferrer">
+                        <video autoplay loop muted playsinline>
+                            <source src="video/253997_tiny.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </a>
+                </div>
             </div>
         </div>
-
-        <button class="nav-button prev-btn" id="prevBtn">‹</button>
-        <button class="nav-button next-btn" id="nextBtn">›</button>
-
         <div class="indicators" id="indicators"></div>
     </div>
 
-<script src="script.js"></script>    
+    <script src="carousel.js"></script>
 </body>
+
 </html>
